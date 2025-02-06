@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Last Accountant</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #1a1f35 0%, #0f1224 100%);
+            color: white;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        nav {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .logo:hover {
+            color: #b388ff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #b388ff;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: #b388ff;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        h1 {
+            font-size: 4rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, #fff, #b388ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient 8s ease infinite;
+        }
+
+        .slogan {
+            font-size: 1.5rem;
+            color: #9ba1b7;
+            margin-bottom: 2rem;
+        }
+
+        .get-started {
+            background: linear-gradient(90deg, #8c43ff 0%, #b388ff 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .get-started:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(179, 136, 255, 0.4);
+        }
+
+        .hero-visual {
+            flex: 1;
+            position: relative;
+        }
+
+        .game-preview {
+            width: 100%;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            backdrop-filter: blur(5px);
+        }
+
+        .game-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .floating-element {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            border-radius: 12px;
+        }
+
+        .element-1 {
+            width: 80px;
+            height: 80px;
+            top: -20px;
+            right: -20px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .element-2 {
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: -30px;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .element-3 {
+            width: 40px;
+            height: 40px;
+            bottom: -20px;
+            right: 100px;
+            animation: float 7s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            h1 {
+                font-size: 3rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#" class="logo">TheLastAcc</a>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Cards</a>
+            <a href="#">How To Play</a>
+            <a href="#">Designers</a>
+        </div>
+    </nav>
+
+    <main class="hero">
+        <div class="hero-content">
+            <h1>THE LAST<br>ACCOUNTANT</h1>
+            <p class="slogan">Audit, Adapt, Survive!</p>
+            <a href="#" class="get-started">Get Started</a>
+        </div>
+        <div class="hero-visual">
+            <div class="game-preview">
+                <img src="/Users/ASUS/Desktop/Del/Accounting Game/Website/accountant.png
+                " alt="Game Preview">
+            </div>
+            <div class="floating-element element-1"></div>
+            <div class="floating-element element-2"></div>
+            <div class="floating-element element-3"></div>
+        </div>
+    </main>
+</body>
+</html>
