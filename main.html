@@ -19,15 +19,6 @@
             line-height: 1.6;
         }
 
-        nav {
-            background: rgba(0, 0, 0, 0.2);
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            backdrop-filter: blur(5px);
-        }
-
         .logo {
             font-size: 1.5rem;
             font-weight: bold;
@@ -39,38 +30,54 @@
         .logo:hover {
             color: #b388ff;
         }
+            nav {
+                background: rgba(0, 0, 0, 0.2);
+                padding: 1rem 2rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                backdrop-filter: blur(5px);
+            }
+            .nav-links a {
+                color: white;
+                text-decoration: none;
+                font-size: 1.1rem;
+                padding: 0.5rem 1rem;
+                border-radius: 8px;
+                transition: all 0.3s ease;
+                position: relative;
+                overflow: hidden;
+                background: rgba(255, 255, 255, 0.05);
+            }
 
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
+            .nav-links a:hover {
+                color: #b388ff;
+                background: rgba(179, 136, 255, 0.1);
+                transform: translateY(-2px);
+                box-shadow: 0 4px 15px rgba(179, 136, 255, 0.2);
+            }
 
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.1rem;
-            transition: color 0.3s ease;
-            position: relative;
-        }
+            .nav-links a::before {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background: linear-gradient(90deg, transparent, #b388ff, transparent);
+                transform: scaleX(0);
+                transition: transform 0.3s ease;
+            }
 
-        .nav-links a:hover {
-            color: #b388ff;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
-            left: 0;
-            background: #b388ff;
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
+            .nav-links a:hover::before {
+                transform: scaleX(1);
+            }
+            .nav-links a.active {
+                background: rgba(179, 136, 255, 0.2);
+                color: #b388ff;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 15px rgba(179, 136, 255, 0.2);
+            }
 
         .hero {
             max-width: 1200px;
@@ -126,10 +133,11 @@
 
         .game-preview {
             width: 100%;
-            height: 400px;
+            height: 500px;
             background: rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            overflow: hidden;
+            border-radius: 20px;
+            overflow:hidden;
+            padding: 4%;
             position: relative;
             backdrop-filter: blur(5px);
         }
@@ -142,30 +150,27 @@
 
         .floating-element {
             position: absolute;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(5px);
             border-radius: 12px;
         }
 
-        .element-1 {
-            width: 80px;
-            height: 80px;
-            top: -20px;
-            right: -20px;
-            animation: float 6s ease-in-out infinite;
+            .floating-element img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 12px;
         }
 
         .element-2 {
-            width: 60px;
-            height: 60px;
+            width: 110px;
+            height: 110px;
             bottom: 40px;
             right: -30px;
             animation: float 8s ease-in-out infinite;
         }
 
         .element-3 {
-            width: 40px;
-            height: 40px;
+            width: 70px;
+            height: 70px;
             bottom: -20px;
             right: 100px;
             animation: float 7s ease-in-out infinite;
@@ -198,16 +203,31 @@
                 display: none;
             }
         }
+
+        footer {
+   background: rgba(0, 0, 0, 0.2);
+   padding: 2rem;
+   text-align: center;
+   backdrop-filter: blur(5px);
+   margin-top: 4rem;
+}
+
+.footer-content {
+   max-width: 1200px;
+   margin: 0 auto;
+   color: #9ba1b7;
+   font-size: 0.9rem;
+}
     </style>
 </head>
 <body>
     <nav>
         <a href="#" class="logo">TheLastAcc</a>
         <div class="nav-links">
-            <a href="#">Home</a>
-            <a href="#">Cards</a>
-            <a href="#">How To Play</a>
-            <a href="#">Designers</a>
+            <a href="/main.html" class="active">Home</a>
+            <a href="/how2.html">How To Play</a>
+            <a href="/cards.html">Cards</a>
+            <a href="/designer.html">Designers</a>
         </div>
     </nav>
 
@@ -215,17 +235,24 @@
         <div class="hero-content">
             <h1>THE LAST<br>ACCOUNTANT</h1>
             <p class="slogan">Audit, Adapt, Survive!</p>
-            <a href="#" class="get-started">Get Started</a>
+            <a href="/how2.html" class="get-started">Get Started</a>
         </div>
         <div class="hero-visual">
             <div class="game-preview">
-                <img src="/Users/ASUS/Desktop/Del/Accounting Game/Website/accountant.png
-                " alt="Game Preview">
+                <img src="./Images/accountant.png" alt="Game Preview">
             </div>
-            <div class="floating-element element-1"></div>
-            <div class="floating-element element-2"></div>
-            <div class="floating-element element-3"></div>
+            <div class="floating-element element-2">
+                <img src="./Images/cash.png" alt="Floating Icon 2">
+            </div>
+            <div class="floating-element element-3">
+                <img src="./Images/accounting (1).png" alt="Floating Icon 2">
+            </div>
         </div>
     </main>
+    <footer>
+        <div class="footer-content">
+            <p>© 2025 The Last Accountant. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>

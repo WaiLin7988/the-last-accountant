@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Last Accountant - Meet the Designers</title>
+    <style>
+        .page-title {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            font-size: 3rem;
+            text-align: center;
+            background: linear-gradient(90deg, #fff, #b388ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: fadeDown 0.5s ease forwards;
+        }
+
+        @keyframes fadeDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #1a1f35 0%, #0f1224 100%);
+            color: white;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        nav {
+                background: rgba(0, 0, 0, 0.2);
+                padding: 1rem 2rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                backdrop-filter: blur(5px);
+            }
+            .nav-links a {
+                color: white;
+                text-decoration: none;
+                font-size: 1.1rem;
+                padding: 0.5rem 1rem;
+                border-radius: 8px;
+                transition: all 0.3s ease;
+                position: relative;
+                overflow: hidden;
+                background: rgba(255, 255, 255, 0.05);
+            }
+
+            .nav-links a:hover {
+                color: #b388ff;
+                background: rgba(179, 136, 255, 0.1);
+                transform: translateY(-2px);
+                box-shadow: 0 4px 15px rgba(179, 136, 255, 0.2);
+            }
+
+            .nav-links a::before {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background: linear-gradient(90deg, transparent, #b388ff, transparent);
+                transform: scaleX(0);
+                transition: transform 0.3s ease;
+            }
+
+            .nav-links a:hover::before {
+                transform: scaleX(1);
+            }
+            .nav-links a.active {
+                background: rgba(179, 136, 255, 0.2);
+                color: #b388ff;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 15px rgba(179, 136, 255, 0.2);
+            }
+
+        .designers-container {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .designer-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.5s ease forwards;
+            opacity: 0;
+        }
+
+        .designer-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(179, 136, 255, 0.2);
+        }
+
+        .designer-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            overflow: hidden;
+            border: 3px solid #b388ff;
+            transition: transform 0.3s ease;
+        }
+
+        .designer-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .designer-card:hover .designer-image {
+            transform: scale(1.1);
+        }
+
+        .designer-name {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(90deg, #fff, #b388ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .designer-id {
+            color: #9ba1b7;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .designer-card:nth-child(1) { animation-delay: 0.1s; }
+        .designer-card:nth-child(2) { animation-delay: 0.2s; }
+        .designer-card:nth-child(3) { animation-delay: 0.3s; }
+        .designer-card:nth-child(4) { animation-delay: 0.4s; }
+        .designer-card:nth-child(5) { animation-delay: 0.5s; }
+
+        footer {
+   background: rgba(0, 0, 0, 0.2);
+   padding: 2rem;
+   text-align: center;
+   backdrop-filter: blur(5px);
+   margin-top: 4rem;
+}
+
+.footer-content {
+   max-width: 1200px;
+   margin: 0 auto;
+   color: #9ba1b7;
+   font-size: 0.9rem;
+}
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#" class="logo">TheLastAcc</a>
+        <div class="nav-links">
+            <a href="/main.html">Home</a>
+            <a href="/how2.html">How To Play</a>
+            <a href="/cards.html">Cards</a>
+            <a href="/designer.html"  class="active">Designers</a>
+        </div>
+    </nav>
+
+    <h1 class="page-title">Meet The Designers</h1>
+
+    <div class="designers-container">
+        <div class="designer-card">
+            <div class="designer-image">
+                <img src="/Images/wai.webp" alt="Designer 1">
+            </div>
+            <h2 class="designer-name">Wai LIn Aung (Winston)</h2>
+            <div class="designer-id">2410212100051</div>
+        </div>
+
+        <div class="designer-card">
+            <div class="designer-image">
+                <img src="/Images/evie.webp" alt="Designer 2">
+            </div>
+            <h2 class="designer-name">Hsu Mon Htun (Evie)</h2>
+            <div class="designer-id">2410212100025</div>
+        </div>
+
+        <div class="designer-card">
+            <div class="designer-image">
+                <img src="/Images/mya.webp" alt="Designer 3">
+            </div>
+            <h2 class="designer-name">Mya San Thida Han (Mya)</h2>
+            <div class="designer-id">2410212100011</div>
+        </div>
+
+        <div class="designer-card">
+            <div class="designer-image">
+                <img src="/Images/awch.webp" alt="Designer 4">
+            </div>
+            <h2 class="designer-name">Khaing Zin Thant (Awchael)</h2>
+            <div class="designer-id">2410212100022</div>
+        </div>
+
+        <div class="designer-card">
+            <div class="designer-image">
+                <img src="/api/placeholder/150/150" alt="Designer 5">
+            </div>
+            <h2 class="designer-name">Phyu Zin Thant (JM)</h2>
+            <div class="designer-id">2410212100023</div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>© 2025 The Last Accountant. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
