@@ -19,64 +19,152 @@
             min-height: 100vh;
         }
 
-        nav {
-            background: rgba(0, 0, 0, 0.2);
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            backdrop-filter: blur(5px);
-        }
+        /* Navigation Styles */
+nav {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(5px);
+    position: relative;
+    z-index: 1000;
+}
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
 
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.1rem;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            background: rgba(255, 255, 255, 0.05);
-        }
+.logo:hover {
+    color: #b388ff;
+}
 
-        .nav-links a:hover {
-            color: #b388ff;
-            background: rgba(179, 136, 255, 0.1);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(179, 136, 255, 0.2);
-        }
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
 
-        .nav-links a::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #b388ff, transparent);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.05);
+}
 
-        .nav-links a:hover::before {
-            transform: scaleX(1);
-        }
+.nav-links a:hover {
+    color: #b388ff;
+    background: rgba(179, 136, 255, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(179, 136, 255, 0.2);
+}
 
-        .nav-links a.active {
-            background: rgba(179, 136, 255, 0.2);
-            color: #b388ff;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(179, 136, 255, 0.2);
-        }
+.nav-links a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #b388ff, transparent);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-links a:hover::before {
+    transform: scaleX(1);
+}
+
+.nav-links a.active {
+    background: rgba(179, 136, 255, 0.2);
+    color: #b388ff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(179, 136, 255, 0.2);
+}
+
+/* Hamburger Button Styles */
+.hamburger {
+    display: none; /* Hidden by default */
+    cursor: pointer;
+    padding: 10px;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+.hamburger-box {
+    width: 30px;
+    height: 24px;
+    display: inline-block;
+    position: relative;
+}
+
+.hamburger-inner {
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: background-color 0.3s ease;
+}
+
+.hamburger-inner::before,
+.hamburger-inner::after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    position: absolute;
+    left: 0;
+    transition: transform 0.3s ease;
+}
+
+.hamburger-inner::before {
+    top: -8px;
+}
+
+.hamburger-inner::after {
+    top: 8px;
+}
+
+/* Mobile Navigation Styles */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block; /* Show hamburger button on mobile */
+    }
+
+    .nav-links {
+        display: none; /* Hide nav links by default on mobile */
+        flex-direction: column;
+        background: rgba(0, 0, 0, 0.9);
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        padding: 1rem;
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+    }
+
+    .nav-links.active {
+        display: flex; /* Show nav links when active */
+    }
+
+    .nav-links a {
+        margin: 0.5rem 0;
+    }
+}
 
         .page-title {
             text-align: center;
@@ -221,6 +309,11 @@ footer {
 <body>
     <nav>
         <a href="#" class="logo">TheLastAcc</a>
+        <button class="hamburger" aria-label="Toggle navigation">
+            <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+            </span>
+        </button>
         <div class="nav-links">
             <a href="https://wailin7988.github.io/the-last-accountant/index.html">Home</a>
             <a href="https://wailin7988.github.io/the-last-accountant/how2.html">How To Play</a>
@@ -325,6 +418,17 @@ footer {
             <p>© 2025 The Last Accountant. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+    
+            hamburger.addEventListener('click', function () {
+                navLinks.classList.toggle('active');
+            });
+        });
+    </script>
 
 </body>
 </html>
